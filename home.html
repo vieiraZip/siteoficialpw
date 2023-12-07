@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+    <title>Gestão Financeira para PMEs</title>
+</head>
+<body>
+    <header id="top">
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://cdn.logo.com/hotlink-ok/logo-social.png" alt="Logo da empresa">
+            </div>
+            <h1>Plataforma de Gestão Financeira para Pequenas e Médias Empresas (PMEs)</h1>
+            <button id="btn-sair"><a href="index.html">Sair</a></button>
+        </div>
+
+        <div class="tab">
+          <button class="tab-button" onclick="abrirTab(event, 'analise-financeira')">Análise Financeira</button>
+          <button class="tab-button" onclick="abrirTab(event, 'relatorios')">Relatórios Financeiros</button>
+          <button class="tab-button" onclick="abrirTab(event, 'fluxo-caixa')">Controle de Fluxo de Caixa</button>
+          <button class="tab-button" onclick="abrirTab(event, 'transacoes')">Histórico de Transações Monetárias</button>
+          <button class="tab-button" onclick="abrirTab(event, 'suporte')">Suporte</button>
+        </div>
+    </header>
+    <main>
+       <!---------------------------------Análise Financeira---------------------------------->
+        <div class="conteudo" id="analise-financeira">
+          <section>
+            <div>
+              <label for="productSelect">Selecione o Produto:</label>
+              <select id="productSelect" required>
+                <!-- Opções do combobox (substitua estas opções pelas opções reais dos seus produtos) -->
+                <option value="produto1">Laptop SuperTech X5000</option>
+                <option value="produto2">Smartphone UltraSlim Z9</option>
+                <option value="produto3">Smart TV MegaView 55"</option>
+                <option value="produto4">Console de Jogos QuantumPlay VR</option>
+                <option value="produto5">Câmera Digital ProShot 20MP</option>
+                <option value="produto6">Fones de Ouvido SonicBlast Pro</option>
+                <option value="produto7">Impressora ColorJet Elite</option>
+                <option value="produto8">Drone SkyMaster 4K</option>
+                <option value="produto9">Máquina de Café PremiumBlend</option>
+                <option value="produto10">Monitor UltraWide VisionX 34"</option>
+
+              </select>
+          
+              <label for="productProfit">Lucro do Produto:</label>
+              <input type="number" id="productProfit" required>
+          
+              <button onclick="adicionarProduto()">Adicionar Produto</button>
+            </div>
+          
+            <canvas id="grafico1" width="auto" height="80%"></canvas>
+          
+            <div>
+              <h2>Tabela de Produtos</h2>
+              <table id="tabela-produtos">
+                <thead>
+                  <tr>
+                    <th>Produto</th>
+                    <th>Lucro</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+
+        <!---------------------------------Relatórios Financeiros---------------------------------->
+        <div class="conteudo" id="relatorios">
+          <section>
+            <h2>Relatórios Financeiros</h2>
+            <div class="selecao-relatorios-orcamento">
+                        
+                <label for="mes-relatorio">Mês:</label>
+                <select id="mes-relatorio" name="mes">
+                  <option value="01"> Janeiro </option>
+                  <option value="02"> Fevereiro </option>
+                  <option value="03"> Março </option>
+                  <option value="04"> Abril </option>
+                  <option value="05"> Maio </option>
+                  <option value="06"> Junho </option>
+                  <option value="07"> Julho </option>
+                  <option value="08"> Agosto </option>
+                  <option value="09"> Setembro </option>
+                  <option value="10"> Outubro </option>
+                  <option value="11"> Novembro </option>
+                  <option value="12"> Dezembro </option>
+                </select>
+        
+                <label for="ano-relatorio">Ano:</label>
+                <select id="ano-relatorio" name="ano">
+                  <option value="2018">2018</option>
+                  <option value="2019">2019</option>
+                  <option value="2020">2020</option>
+                  <option value="2021">2021</option>
+                  <option value="2022">2022</option>
+                  <option value="2023">2023</option>
+                </select>
+        
+                <label for="fornecedor-relatorio">Fornecedor:</label>
+                <select id="fornecedor-relatorio" name="fornecedor">
+                  <option value="NovaTech Solutions"> NovaTech Solutions </option>
+                  <option value="Horizon Dynamics"> Horizon Dynamics </option>
+                  <option value="AeroNova Innovations"> AeroNova Innovations </option>
+                  <option value="VivaLink Innovations"> VivaLink Innovations </option>
+                  <option value="CoreMatrix Dynamics"> CoreMatrix Dynamics </option>
+                  <option value="ProSolutions Nexus"> ProSolutions Nexus </option>
+                  <option value="SparkTech Ventures"> SparkTech Ventures </option>
+                  <option value="TerraFusion"> TerraFusion </option>
+                </select>
+        
+                <button type="submit" onclick="gerarRelatorio()">Gerar Relatório</button>
+
+            </div>      
+          </section>
+        </div>
+
+        <!---------------------------------Controle de Fluxo de Caixa---------------------------------->
+        <div class="conteudo" id="fluxo-caixa">
+          <section>
+            <h2>Controle de Fluxo de Caixa</h2>
+            <section>
+              <label for="valor">Valor:</label>
+              <input type="number" id="valor" placeholder="Digite o valor">
+              
+              <label for="tipo">Tipo:</label>
+              <select id="tipo">
+                <option value="entrada">Entrada</option>
+                <option value="saida">Saída</option>
+              </select>
+              
+              <button type="button" onclick="adicionarTransacao()">Adicionar Transação</button>
+              
+              <table id="tabela-transacoes">
+                <thead>
+                  <tr>
+                    <th>Data</th>
+                    <th>Descrição</th>
+                    <th>Tipo</th>
+                    <th>Valor</th>
+                    <th>Saldo</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Aqui serão adicionadas as linhas da tabela dinamicamente -->
+                </tbody>
+              </table>
+                <canvas id="grafico2" width="auto" height="80%"></canvas>
+            </section>
+          </div>  
+          </section>
+        </div>  
+
+        <!---------------------------------Histórico de Transações Monetárias---------------------------------->
+        <div class="conteudo" id="transacoes">
+          <section>
+            <h2>Histórico de Transações Monetárias</h2>
+            <p>Mantenha os registros detalhados de suas transações financeiras para fins de contabilidade e relatórios financeiros:</p>
+            
+            <table border="1">
+                <thead>
+                  <tr>
+                    <th>Quem Enviou</th>
+                    <th>Horário</th>
+                    <th>Valor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>João</td>
+                    <td>2023-08-29 10:00</td>
+                    <td>R$50,00</td>
+                  </tr>
+                  <tr>
+                    <td>Maria</td>
+                    <td>2023-08-28 15:30</td>
+                    <td>R$75,00</td>
+                  </tr>
+                  <tr>
+                    <td>Carlos</td>
+                    <td>2023-08-27 09:15</td>
+                    <td>R$30,00</td>
+                  </tr>
+                </tbody>
+              </table>
+        </section>
+        </div>
+
+        <!---------------------------------Suporte---------------------------------->
+        <div class="conteudo" id="suporte">
+          <section>
+            <h2>Suporte</h2>
+            <div id="chat-container">
+                <div id="chat-messages">
+                </div>
+              
+                <h4>Lhe enviaremos um e-mail sobre nossos serviços:</h4>
+                <div id="chat-input">
+                    <input type="text" placeholder="Digite seu e-mail..." />
+                    <button>Enviar</button>
+                </div>
+            </div>
+          </section>
+        </div>
+
+     <script src="home.js"></script>
+   
+    </main>
+  </body>
+
+    <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+    <footer>
+        <p>&copy; 2023 Todos os direitos reservados.</p>
+    </footer>
+
+    
+</html>
