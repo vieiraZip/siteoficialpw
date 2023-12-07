@@ -1,0 +1,96 @@
+/* Estilo para o corpo (body) */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Estilo para o cabeçalho (h1) */
+  h1 {
+    text-align: center;
+    color: #2b4c7e;
+    margin-top: 50px;
+  }
+  
+  /* Estilo para o formulário (form) */
+  .login-form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #1f1f208c;
+  }
+  
+  /* Estilo para o título do formulário (h2) */
+  .login-form h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #1f1f20;
+  }
+  
+  /* Estilo para rótulos (labels) */
+  label {
+    display: block;
+    margin-bottom: 8px;
+    color: #1f1f20;
+  }
+  
+  /* Estilo para os campos de entrada (inputs) */
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  /* Estilo para o botão de enviar (button) */
+  button[type="submit"] {
+    background-color: #2b4c7e;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  /* Estilo para o botão de enviar quando hover (mouse em cima) */
+  button[type="submit"]:hover {
+    background-color: #567ebb;
+  }
+  
+  /* Estilo para o link "Voltar" */
+  .link-voltar {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #1f1f20;
+  }
+
+  
+  /* Estilo para o rodapé (p) */
+  footer {
+    text-align: center;
+    color: #1f1f20;
+    margin-top: 20px;
+  }
+  
+/* Estilo responsivo para telas menores */
+@media screen and (max-width: 600px) {
+  .login-form {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  footer {
+    margin-top: 10px; /* Reduzir a margem superior do rodapé em telas menores */
+  }
+}
+
+  
