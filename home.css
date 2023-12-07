@@ -1,0 +1,453 @@
+/* Estilo para o corpo (body) */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+ /* Estilo para o contêiner do título, logo e menu */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #2b4c7e;
+  color: #fff;
+}
+
+
+  /* Estilo para o botão de login (button) */
+  #btn-sair {
+    background-color: #567ebb; 
+    border: none;
+    font-size: 18px; 
+    font-family: inherit; 
+    cursor: pointer;
+    padding: 10px 20px; 
+    border-radius: 4px;
+  }
+
+  #btn-sair a {
+    color: #fff; 
+    text-decoration: none; 
+  }
+
+  /* Estilo para o botão de login quando está ativo (clicado) */
+  #btn-sair:hover {
+    background-color: #fff;
+    color: #2b4c7e;
+  }
+
+  #btn-sair:hover a {
+    color: #2b4c7e;
+  }
+
+.tab {
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+  overflow: auto;
+  width: 70%; /* Defina a largura desejada para a div */
+  margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+.tab button {
+  background-color: #f1f1f1;
+  border: none;
+  outline: none;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+  padding: 10px 16px;
+  font-weight: bold;
+  color: #333;
+  margin: 3px 2px 0 2px;
+  float: left;
+}
+
+.tab button:hover{
+  background-color: #fbfbfb;
+}
+
+.tab button.ativo{
+  background-color: white; 
+  color: #567ebb;
+}
+
+.conteudo {
+  padding: 6px 12px;
+}
+
+/* Estilo para a logo */
+.logo img {
+  max-width: 100px;
+  margin-right: 20px;
+}
+
+/* Estilo para o título (h1) no centro */
+h1 {
+  flex-grow: 1;
+  font-size: 24px;
+  margin: 0;
+  text-align: center;
+}
+
+/* Estilo para o menu de navegação (nav) */
+nav ul {
+  list-style: none;
+  display: flex; /* Alterado para flex para colocar itens lado a lado */
+  justify-content: center;
+  background-color: #2b4c7e;
+  padding: 10px 0;
+  margin: 0; /* Adicionado para remover margem padrão */
+  /* Estilo para espaçamento uniforme entre os itens do menu */
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #567ebb;
+}
+
+
+
+    /* Estilo para o main */
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+ /* Estilo para as seções (h2) */
+ section h2 {
+  font-size: 24px;
+  margin: 20px 0;
+  color: #2b4c7e;
+  }
+
+  /* Estilo para as seções (h3) */
+  section h3 {
+    /*font-size: 24px;*/
+    margin: 20px 0;
+    color: #567ebb;
+  }
+
+  /* Estilo para os parágrafos nas seções (p) */
+  section p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #1f1f20;
+  }
+
+  /* Estilo para links sem sublinhado */
+a {
+  text-decoration: none;
+  color: #1f1f20; /* Cor padrão para links */
+}
+
+/* Estilo para links quando hover (mouse em cima) */
+a:hover {
+  color: #567ebb; /* Cor quando hover */
+}
+
+/* Estilo para links quando clicados */
+a:active {
+  color: #567ebb; /* Cor quando clicado */
+}
+
+  /* Estilo para a seção de Relatórios Financeiros */
+#relatorios {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #ddd;
+}
+
+/* Estilo para o título (h2) da seção */
+#relatorios h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #2b4c7e;
+}
+
+/* Estilo para o contêiner de seleção de relatórios */
+.selecao-relatorios-orcamento {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Estilo para as etiquetas dos selects */
+.selecao-relatorios-orcamento label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Estilo para os selects */
+.selecao-relatorios-orcamento select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Estilo para o botão Gerar Relatório */
+.selecao-relatorios-orcamento button[type="submit"] {
+  background-color: #2b4c7e;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Estilo para o botão Gerar Relatório quando hover (mouse em cima) */
+.selecao-relatorios-orcamento button[type="submit"]:hover {
+  background-color: #567ebb;
+}
+
+
+/* Estilo para o chat de suporte */
+#chat-container {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+#chat-messages {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#chat-input input[type="text"] {
+  width: 80%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+#chat-input button {
+  background-color: #2b4c7e;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+#chat-input button:hover {
+  background-color: #567ebb;
+}
+
+/* Estilo para a seção de conteúdo */
+.conteudo {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #ddd;
+  margin: 20px 0;
+}
+
+/* Estilo para os rótulos (labels) e inputs/selects dentro da seção de conteúdo */
+.conteudo label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.conteudo input,
+.conteudo select {
+  width: calc(100% - 22px); /* Subtrai 22px para levar em conta a borda e o preenchimento */
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  display: inline-block; /* Permite que os inputs/selects fiquem lado a lado */
+  box-sizing: border-box; /* Garante que a largura inclua a borda e o preenchimento */
+}
+
+/* Estilo para o botão Adicionar Transação */
+.conteudo button {
+  background-color: #2b4c7e;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block; /* Permite que o botão fique ao lado dos inputs/selects */
+}
+
+/* Estilo para o botão Adicionar Transação quando hover (mouse em cima) */
+.conteudo button:hover {
+  background-color: #567ebb;
+}
+
+/* Estilo para a tabela de transações */
+#tabela-transacoes {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#tabela-transacoes th,
+#tabela-transacoes td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#tabela-transacoes th {
+  background-color: #f2f2f2;
+}
+
+#tabela-transacoes tr:hover {
+  background-color: #567ebb5a;
+}
+
+/* Estilo para o gráfico */
+#grafico2 {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 20px;
+}
+
+/* Estilo para a seção do gráfico */
+.conteudo > section {
+  margin-bottom: 20px;
+}
+
+/* Estilo para a tabela de produtos */
+#tabela-produtos {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #ddd;
+}
+
+#tabela-produtos th,
+#tabela-produtos td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+#tabela-produtos th {
+  background-color: #f2f2f2
+}
+
+#tabela-produtos td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+#tabela-produtos td:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+#tabela-produtos tr:hover {
+  background-color: #567ebb5a;
+}
+
+#tabela-produtos button {
+  background-color: #fff;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+
+  /* Estilo para o rodapé (footer) */
+  footer {
+    text-align: center;
+    background-color: #2b4c7e;
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+.conteudo {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h2 {
+    color: #007BFF;
+}
+
+p {
+    color: #555;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+thead {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+  @media screen and (max-width: 600px) {
+    main {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    nav ul {
+        flex-direction: column; /* Coloca os itens em coluna em telas menores */
+        align-items: center; /* Centraliza os itens na vertical */
+      }
+      
+      button {
+        width: 100%; /* Ocupa a largura total em telas menores */
+      }
+  }
