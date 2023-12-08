@@ -1,35 +1,33 @@
-const nodemailer = require('nodemailer')
-
 function abrirTab(event, idTab) {
-    let conteudos = document.getElementsByClassName("conteudo")
-    let tabs = document.getElementsByClassName("tab-button")
+  let conteudos = document.getElementsByClassName("conteudo")
+  let tabs = document.getElementsByClassName("tab-button")
 
-    for (let i = 0; i < conteudos.length; i++) {
-      conteudos[i].style.display = 'block';
+  for (let i = 0; i < conteudos.length; i++) {
+    conteudos[i].style.display = 'block';
+  }
+
+  for (let i = 0; i < conteudos.length; i++) {
+    if (conteudos[i].id !== idTab) {
+      conteudos[i].style.display = 'none';
     }
+  }
 
-    for (let i = 0; i < conteudos.length; i++) {
-      if (conteudos[i].id !== idTab) {
-        conteudos[i].style.display = 'none';
-      }
-    }
+  for (let i = 0; i < tabs.length; i++) {
+      tabs[i].classList.remove('ativo')
+  }
 
-    for (let i = 0; i < tabs.length; i++) {
-        tabs[i].classList.remove('ativo')
-    }
-
-    
-    event.currentTarget.classList.add('ativo')
+  
+  event.currentTarget.classList.add('ativo')
 }
 
 // --------------------------------------Análise Financeira---------------------------------------------
 // Funções para obter e salvar dados no localStorage
 function obterDadosLocalStorage(chave) {
-  return JSON.parse(localStorage.getItem(chave)) || [];
+return JSON.parse(localStorage.getItem(chave)) || [];
 }
 
 function salvarDadosLocalStorage(chave, dados) {
-  localStorage.setItem(chave, JSON.stringify(dados));
+localStorage.setItem(chave, JSON.stringify(dados));
 }
 
 // Arrays para armazenar os dados do gráfico
@@ -41,81 +39,81 @@ const ctx = document.getElementById('grafico1').getContext('2d');
 
 // Cria o gráfico de barra inicial
 const grafico1 = new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: produtos,
-    datasets: [{
-      label: 'Lucro por Produto',
-      data: lucros,
-      backgroundColor: '#ffffff',
-      borderColor: '#2b4c7e',
-      borderWidth: 1,
-    }]
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
-      }
+type: 'bar',
+data: {
+  labels: produtos,
+  datasets: [{
+    label: 'Lucro por Produto',
+    data: lucros,
+    backgroundColor: '#ffffff',
+    borderColor: '#2b4c7e',
+    borderWidth: 1,
+  }]
+},
+options: {
+  scales: {
+    y: {
+      beginAtZero: true
     }
   }
+}
 });
 
 // Função anônima para adicionar um produto e seu lucro
 const adicionarProduto = function() {
-  const productSelect = document.getElementById('productSelect');
-  const productName = productSelect.options[productSelect.selectedIndex].text;
-  const productProfit = parseFloat(document.getElementById('productProfit').value);
+const productSelect = document.getElementById('productSelect');
+const productName = productSelect.options[productSelect.selectedIndex].text;
+const productProfit = parseFloat(document.getElementById('productProfit').value);
 
-  // Validação simples
-  if (isNaN(productProfit) || productProfit <= 0) {
-    alert('Por favor, insira um valor válido para o lucro do produto.');
-    return;
-  }
+// Validação simples
+if (isNaN(productProfit) || productProfit <= 0) {
+  alert('Por favor, insira um valor válido para o lucro do produto.');
+  return;
+}
 
-  // Adiciona os dados aos arrays
-  produtos.push(productName);
-  lucros.push(productProfit);
+// Adiciona os dados aos arrays
+produtos.push(productName);
+lucros.push(productProfit);
 
-  // Salva os dados no localStorage
-  salvarDadosLocalStorage('produtos', produtos);
-  salvarDadosLocalStorage('lucros', lucros);
+// Salva os dados no localStorage
+salvarDadosLocalStorage('produtos', produtos);
+salvarDadosLocalStorage('lucros', lucros);
 
-  // Atualiza a tabela
-  atualizarTab();
+// Atualiza a tabela
+atualizarTab();
 
-  // Atualiza os dados do gráfico
-  grafico1.data.labels = produtos;
-  grafico1.data.datasets[0].data = lucros;
-  
-  // Atualiza o gráfico
-  grafico1.update();
+// Atualiza os dados do gráfico
+grafico1.data.labels = produtos;
+grafico1.data.datasets[0].data = lucros;
 
-  // Limpa os campos do formulário
-  document.getElementById('productProfit').value = '';
+// Atualiza o gráfico
+grafico1.update();
+
+// Limpa os campos do formulário
+document.getElementById('productProfit').value = '';
 };
 
 // Função anônima para remover um produto
 const removerProduto = function(index) {
-  console.log('Removendo produto no índice:', index);
-  produtos.splice(index, 1);
-  lucros.splice(index, 1);
+console.log('Removendo produto no índice:', index);
+produtos.splice(index, 1);
+lucros.splice(index, 1);
 
-  // Salva os dados no localStorage
-  salvarDadosLocalStorage('produtos', produtos);
-  salvarDadosLocalStorage('lucros', lucros);
+// Salva os dados no localStorage
+salvarDadosLocalStorage('produtos', produtos);
+salvarDadosLocalStorage('lucros', lucros);
 
-  // Atualiza a tabela
-  atualizarTab();
+// Atualiza a tabela
+atualizarTab();
 
-  console.log('Dados após a remoção:', produtos, lucros);
+console.log('Dados após a remoção:', produtos, lucros);
 
-  // Atualiza os dados do gráfico
-  grafico1.data.labels = produtos;
-  grafico1.data.datasets[0].data = lucros;
-  
-  // Atualiza o gráfico
-  grafico1.update();
+// Atualiza os dados do gráfico
+grafico1.data.labels = produtos;
+grafico1.data.datasets[0].data = lucros;
+
+// Atualiza o gráfico
+grafico1.update();
 };
 
 
@@ -141,7 +139,7 @@ iconExcluir.style.cursor = 'pointer';
 iconExcluir.style.color = '#2b4c7e';
 iconExcluir.title = 'Excluir';
 iconExcluir.onclick = function() {
-  removerProduto(index);
+removerProduto(index);
 };
 cellAcoes.appendChild(iconExcluir);
 });
@@ -317,8 +315,8 @@ async function enviarEmail(email) {
     port: 465,
     secure: true,
     auth: {
-      user: 'vieira.jonas474@gmail.com',
-      pass: 'usepjzybqwnshpzh',
+      user: '',
+      pass: '',
     },
   });
 
